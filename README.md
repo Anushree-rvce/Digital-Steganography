@@ -1,2 +1,18 @@
 # Digital-Steganoraphy
 Computer Network Security Project
+
+Steganography is the hiding of a secret message within an ordinary message and its extraction at the destination. Steganography takes cryptography a step further by hiding an encrypted message so that no one suspects it exists. Ideally, anyone scanning the data will fail to know it contains encrypted data. In digital form, media files are ideal for steganographic transmission because of their large size.In the process of steganography, a secret message is encoded in a cover, which is essentially a media file. The encoding happens in the stegosystem encoder where various stego techniques are employed. 
+LSB is one of the techniques used where  the last few bits in a byte are changed to encode a message. This method works well for media files, where slightly changing byte values creates only slight imperceptible changes due to the fact that the modification of the image is strategically performed using the least significant bits only. Using more significant bits would result in a media file whose changes are evident. Append algorithms are also used to add message bits at the end of the media file.
+
+# Python Packages
+•	audioEncryption ( aud, msg ) – 
+This module is used to encrypt audio to hide a given message. It takes an instance of audio file as input along with the message to be hidden. The frames are read sequentially and the LSB's of the first few bytes are modified according to the message. Initially a special symbol is encrypted to identify that the audio file has been encrypted by this system. Next, the size of the message is stored. Therefore the LSBs of the first 32 bytes are reserved for 8 bit special symbol and 24 bit length of the message. The next 8*(length_of_message) bits are encrypted into the audio file by modifying the LSBs of the following bytes in the stream. It finally returns a string of modified byte stream of the audio.
+
+•	audioDecryption (aud) – 
+This module is used to decrypt the message out of the given audio file. It takes an instance of audio as the input. It first decrypts the LSB's of first 8 bytes to get the special symbol that will help in determining if that audio file was encrypted using the same system. Then the length of the message is decrypted following which the message of the obtained length is retrieved by identifying the LSB's of the following bytes. It returns the message hidden in the audio file.
+
+•	imageEncryption ( img, msg ) – 
+This module is used to encrypt image to hide a given message. It takes 2D RGB representation of an image as the input. The LSB's of the first few bytes are modified according to the message. Initially a special symbol is encrypted to identify that the image file has been encrypted by this system. Next, the size of the message is stored. Therefore the LSBs of the first 32 bytes are reserved for 8 bit special symbol and 24 bit length of the message. The next 8*(length_of_message) bits are encrypted into the image file by modifying the following bytes in the matrix. It then returns the modified image (2D matrix).
+
+•	imageDecryption (img) – 
+This module is used to decrypt the message out of the given image file. It takes 2D RGB representation of an image as the input. It first decrypts the LSB's of first 8 bytes to get the special symbol that will help in determining if that image file was encrypted using the same system. Then the length of the message is decrypted following which the message of the above obtained length is retrieved by identifying the LSB's of the following bytes. It returns the message hidden in the image file.
