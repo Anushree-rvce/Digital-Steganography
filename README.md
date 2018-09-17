@@ -1,4 +1,4 @@
-# Digital-Steganoraphy
+# Digital-Steganography
 Computer Network Security Project
 
 Steganography is the hiding of a secret message within an ordinary message and its extraction at the destination. Steganography takes cryptography a step further by hiding an encrypted message so that no one suspects it exists. Ideally, anyone scanning the data will fail to know it contains encrypted data. In digital form, media files are ideal for steganographic transmission because of their large size.In the process of steganography, a secret message is encoded in a cover, which is essentially a media file. The encoding happens in the stegosystem encoder where various stego techniques are employed. 
